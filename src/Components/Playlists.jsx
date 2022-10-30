@@ -17,7 +17,9 @@ export default function Playlists() {
           },
         }
       );
+      
       const { items } = response.data;
+      
       const playlists = items.map(({ name, id }) => {
         return { name, id };
       });
@@ -36,8 +38,16 @@ export default function Playlists() {
             <li key={id} onClick={() => changeCurrentPlaylist(id)}>
               {name}
             </li>
-          );
+          )
+        })}{playlists.map(({ name, id }) => {
+          return (
+            <li key={id} onClick={() => changeCurrentPlaylist(id)}>
+              {name}
+            </li>
+          )
         })}
+        
+        
       </ul>
     </Container>
   );
@@ -53,7 +63,7 @@ const Container = styled.div`
     flex-direction: column;
     gap: 1rem;
     padding: 1rem;
-    height: 52vh;
+    height: 55vh;
     max-height: 100%;
     overflow: auto;
     &::-webkit-scrollbar {
@@ -70,4 +80,4 @@ const Container = styled.div`
       }
     }
   }
-`; 
+`;
